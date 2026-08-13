@@ -14,7 +14,7 @@ export const metadata: Metadata = {
       'Discover extraordinary places, unforgettable experiences, and stories worth taking home.',
     images: [
       {
-        url: 'https://bolt.new/static/og_default.png',
+        url: 'https://wander-umber.vercel.app',
       },
     ],
   },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     images: [
       {
-        url: 'https://bolt.new/static/og_default.png',
+        url: 'https://wander-umber.vercel.app',
       },
     ],
   },
