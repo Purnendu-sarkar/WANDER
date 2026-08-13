@@ -1,148 +1,159 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { ArrowRightIcon } from 'lucide-react';
 import { destinations } from '../../data/destinations';
 
-export default function DestinationJourney() {
+const EASE = [0.23, 1, 0.32, 1] as const;
+const journey = destinations.slice(0, 4);
+
+/**
+ * The spine of the page: one sticky frame where scrolling swaps the
+ * destination rather than moving the layout — the journey happens in place.
+ */
+export function DestinationJourney() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
   });
 
-  const total = destinations.length;
+  useMotionValueEvent(scrollYProgress, 'change', (value) => {
+    const next = Math.min(journey.length - 1, Math.floor(value * journey.length));
+    setActive(next < 0 ? 0 : next);
+  });
+
+  const current = journey[active];
 
   return (
     <section
       id="destinations"
       ref={containerRef}
       className="relative bg-ink"
-      style={{ height: `${total * 100}vh` }}
+      style={{ height: `${journey.length * 100}vh` }}
+      aria-label="Destination journey"
     >
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        {destinations.map((dest, i) => {
-          const start = i / total;
-          const end = (i + 1) / total;
-          const mid = (start + end) / 2;
+      <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
+        {/* Giant outline name in the background field */}
+        <span
+          className="outline-type pointer-events-none absolute -right-6 top-1/2 hidden -translate-y-1/2 font-display text-[16vw] font-extrabold leading-none tracking-tightest lg:block"
+          aria-hidden="true"
+        >
+          {current.category.toUpperCase()}
+        </span>
 
-          const opacity = useTransform(
-            scrollYProgress,
-            [start, mid, end],
-            [0, 1, 0]
-          );
-          const scale = useTransform(
-            scrollYProgress,
-            [start, mid, end],
-            [1.15, 1, 1.1]
-          );
-          const textY = useTransform(
-            scrollYProgress,
-            [start, mid, end],
-            [80, 0, -80]
-          );
-          const imageClip = useTransform(
-            scrollYProgress,
-            [start, mid, end],
-            ['inset(100% 0 0 0)', 'inset(0% 0 0 0)', 'inset(0 0 100% 0)']
-          );
-
-          return (
-            <div
-              key={dest.number}
-              className="absolute inset-0 grid grid-cols-1 items-center gap-8 px-6 md:grid-cols-2 md:px-12 lg:px-20"
-            >
-              {/* Text side */}
-              <motion.div
-                style={{ opacity, y: textY }}
-                className="order-2 md:order-1"
-              >
-                <div className="mb-4 flex items-center gap-4">
-                  <span className="text-sm tracking-[0.3em] text-lime">
-                    {dest.number}
-                  </span>
-                  <div className="h-px w-12 bg-cream/20" />
-                  <span className="text-xs tracking-[0.2em] text-cream/50">
-                    {dest.category.toUpperCase()}
-                  </span>
-                </div>
-
-                <h2 className="text-[14vw] font-bold leading-[0.85] tracking-tighter text-cream md:text-[7vw]">
-                  {dest.name}
-                </h2>
-
-                <p className="mt-4 text-lg text-cream/60 md:text-2xl">
-                  {dest.description}
-                </p>
-
-                <div className="mt-8 flex items-center gap-6">
-                  <div className="text-xs tracking-[0.2em] text-cream/40">
-                    {dest.country.toUpperCase()}
-                  </div>
-                  <div className="text-xs tracking-[0.2em] text-cream/40">
-                    {dest.coordinates}
-                  </div>
-                  <a
-                    href="#explore"
-                    className="group ml-auto inline-flex items-center gap-2 text-sm text-cream transition-colors hover:text-lime md:ml-0"
-                  >
-                    Explore
-                    <span className="transition-transform group-hover:translate-x-1">
-                      →
-                    </span>
-                  </a>
-                </div>
-              </motion.div>
-
-              {/* Image side */}
-              <motion.div
-                style={{ opacity }}
-                className="order-1 h-[35vh] w-full overflow-hidden md:order-2 md:h-[70vh]"
-              >
-                <motion.div
-                  style={{ clipPath: imageClip }}
-                  className="h-full w-full overflow-hidden"
-                >
-                  <motion.img
-                    src={dest.image}
-                    alt={dest.name}
-                    style={{ scale }}
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                </motion.div>
-              </motion.div>
+        <div className="relative mx-auto grid w-full max-w-[1600px] gap-10 px-6 lg:grid-cols-[1fr_0.85fr] lg:items-center lg:gap-20 lg:px-10">
+          {/* Typography side */}
+          <div className="pt-24 lg:pt-0">
+            <div className="flex items-center gap-4 text-[11px] uppercase tracking-[0.28em] text-bone/40">
+              <span>Destination</span>
+              <span className="h-px w-8 bg-bone/20" />
+              <span className="text-acid">{current.number}</span>
+              <span>/ 0{journey.length}</span>
             </div>
-          );
-        })}
 
-        {/* Progress indicator */}
-        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2">
-          <DestinationProgress scrollYProgress={scrollYProgress} total={total} />
+            <div className="mt-6 h-[13vw] min-h-[76px] overflow-hidden lg:h-[9vw]">
+              <AnimatePresence mode="wait">
+                <motion.h2
+                  key={current.name}
+                  className="font-display text-[13vw] font-extrabold leading-[0.85] tracking-tightest text-bone lg:text-[9vw]"
+                  initial={{ y: '110%' }}
+                  animate={{ y: '0%' }}
+                  exit={{ y: '-110%' }}
+                  transition={{ duration: 0.3, ease: EASE }}
+                >
+                  {current.name}
+                </motion.h2>
+              </AnimatePresence>
+            </div>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`${current.name}-meta`}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.25, ease: EASE, delay: 0.05 }}
+              >
+                <p className="mt-6 max-w-sm font-display text-2xl font-light leading-snug text-bone/80 lg:text-3xl">
+                  {current.description}
+                </p>
+                <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-4 text-[11px] uppercase tracking-[0.2em]">
+                  <div>
+                    <dt className="text-bone/35">Region</dt>
+                    <dd className="mt-1 text-bone/85">{current.country}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-bone/35">Category</dt>
+                    <dd className="mt-1 text-bone/85">{current.category}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-bone/35">Coordinates</dt>
+                    <dd className="mt-1 text-bone/85">{current.coordinates}</dd>
+                  </div>
+                </dl>
+              </motion.div>
+            </AnimatePresence>
+
+            <a
+              href="#explore"
+              className="group mt-10 inline-flex items-center gap-3 border-b border-bone/25 pb-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-bone transition-colors duration-200 ease-expo hover:border-acid hover:text-acid"
+            >
+              Explore
+              <ArrowRightIcon
+                className="h-4 w-4 transition-transform duration-200 ease-expo group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </a>
+          </div>
+
+          {/* Image side — masked reveal between destinations */}
+          <div className="relative aspect-[4/5] w-full overflow-hidden lg:aspect-[4/5]">
+            {journey.map((destination, index) => (
+              <motion.div
+                key={destination.name}
+                className="absolute inset-0"
+                initial={false}
+                animate={{
+                  opacity: index === active ? 1 : 0,
+                  scale: index === active ? 1 : 1.06,
+                  clipPath:
+                    index === active ? 'inset(0% 0 0% 0)' : 'inset(18% 0 18% 0)',
+                }}
+                transition={{ duration: 0.3, ease: EASE }}
+                aria-hidden={index !== active}
+              >
+                <img
+                  src={destination.image}
+                  alt={`${destination.name}, ${destination.country}`}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  className="h-full w-full object-cover"
+                />
+              </motion.div>
+            ))}
+            <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-bone/10" />
+          </div>
+        </div>
+
+        {/* Progress rail */}
+        <div className="absolute bottom-6 left-6 right-6 flex gap-2 lg:left-10 lg:right-10">
+          {journey.map((destination, index) => (
+            <div key={destination.name} className="h-px flex-1 bg-bone/15">
+              <motion.div
+                className="h-px bg-acid"
+                initial={false}
+                animate={{ scaleX: index <= active ? 1 : 0 }}
+                style={{ originX: 0 }}
+                transition={{ duration: 0.25, ease: EASE }}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function DestinationProgress({
-  scrollYProgress,
-  total,
-}: {
-  scrollYProgress: ReturnType<typeof useScroll>['scrollYProgress'];
-  total: number;
-}) {
-  const width = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-
-  return (
-    <div className="flex items-center gap-3">
-      <span className="text-xs tracking-[0.2em] text-cream/40">JOURNEY</span>
-      <div className="h-px w-32 bg-cream/20">
-        <motion.div className="h-full bg-lime" style={{ width }} />
-      </div>
-      <span className="text-xs tracking-[0.2em] text-cream/40">
-        {String(total).padStart(2, '0')}
-      </span>
-    </div>
-  );
-}
+export default DestinationJourney;

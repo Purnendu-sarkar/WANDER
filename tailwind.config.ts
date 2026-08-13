@@ -11,6 +11,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        display: ['Manrope', 'var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -25,6 +26,8 @@ const config: Config = {
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        bone: '#F4F1EA',
+        acid: '#D9FF5A',
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
@@ -111,6 +114,10 @@ const config: Config = {
       },
       letterSpacing: {
         'ultra-wide': '0.5em',
+        tightest: '-0.055em',
+      },
+      transitionTimingFunction: {
+        expo: 'cubic-bezier(0.23, 1, 0.32, 1)',
       },
     },
   },
