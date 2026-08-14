@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { experiences, ExperienceItem } from '../../data/destinations';
 import FadeIn from '../animations/FadeIn';
@@ -21,6 +21,17 @@ export default function Experiences() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [selectedExperience, setSelectedExperience] = useState<ExperienceItem | null>(null);
   const [isPlayingAudio, setIsPlayingAudio] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (selectedExperience) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedExperience]);
 
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -283,7 +294,8 @@ export default function Experiences() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-ink-100 border border-cream/20 rounded-3xl p-6 sm:p-10 shadow-2xl z-10 text-cream"
+              data-lenis-prevent
+              className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto overscroll-contain bg-ink-100 border border-cream/20 rounded-3xl p-6 sm:p-10 shadow-2xl z-10 text-cream"
             >
               {/* Close Button */}
               <button

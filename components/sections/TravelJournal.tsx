@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { journalStories, JournalStory } from '../../data/destinations';
 import FadeIn from '../animations/FadeIn';
@@ -293,18 +293,18 @@ export default function TravelJournal() {
         <div className="mt-20 rounded-3xl bg-gradient-to-r from-ink-100 via-ink-50 to-ink-100 border border-lime/20 p-8 md:p-12 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-lime/10 blur-[100px] pointer-events-none" />
           
-          <div className="relative z-10 max-w-2xl">
-            <div className="flex items-center gap-2 text-xs font-mono text-lime tracking-widest uppercase mb-3">
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-2 text-xs font-mono text-lime tracking-widest uppercase mb-3">
               <Sparkles className="w-4 h-4" />
               <span>THE WANDER DISPATCH</span>
             </div>
 
             <h3 className="font-syne text-3xl sm:text-4xl font-bold text-cream tracking-tight">
-              Receive Quiet Stories & <span className="font-serif-editorial italic font-normal text-lime">Private Expedition Invites</span>.
+              Receive Quiet Stories & <span className="font-serif-editorial italic font-normal text-lime">Private Expedition Invites</span>
             </h3>
 
             <p className="mt-3 text-sm text-cream/70 leading-relaxed font-light">
-              Published once a month. No spam, only hand-crafted notes on hidden destinations, dark sky maps, and alpine lore.
+              Published once a month. No spam, only hand-crafted notes on hidden destinations, dark sky maps and alpine lore.
             </p>
 
             {isSubscribed ? (
@@ -369,6 +369,13 @@ function StoryReaderModal({
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
+
   const handleShare = () => {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(window.location.href);
@@ -392,7 +399,8 @@ function StoryReaderModal({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 30, scale: 0.97 }}
         transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-ink-100 border border-cream/20 rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl z-10 text-cream scrollbar-thin"
+        data-lenis-prevent
+        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto overscroll-contain bg-ink-100 border border-cream/20 rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl z-10 text-cream scrollbar-thin"
       >
         {/* Top Control Bar */}
         <div className="sticky top-0 z-30 flex items-center justify-between bg-ink-100/90 backdrop-blur-md pb-4 mb-6 border-b border-cream/10">

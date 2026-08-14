@@ -174,7 +174,7 @@ export const journalStories: JournalStory[] = [
     image: 'https://images.pexels.com/photos/31814582/pexels-photo-31814582.jpeg?auto=compress&cs=tinysrgb&w=1200',
     galleryImages: [
       'https://images.pexels.com/photos/18261765/pexels-photo-18261765.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2a9df3a5-33c7-40d6-93e0-dc784a0680dc.jpg?auto=compress&cs=tinysrgb&w=800'
+      'https://images.pexels.com/photos/22064527/pexels-photo-22064527.jpeg'
     ],
     location: 'Patagonia, AR',
     date: 'March 2026',
@@ -200,7 +200,8 @@ export const journalStories: JournalStory[] = [
     quote: 'Tradition is not the preservation of ashes, but the preservation of fire.',
     image: 'https://images.pexels.com/photos/33469141/pexels-photo-33469141.jpeg?auto=compress&cs=tinysrgb&w=1200',
     galleryImages: [
-      'https://images.pexels.com/photos/055e4b9a-a541-4dba-be91-f4561f939e36.jpg?auto=compress&cs=tinysrgb&w=800'
+      'https://images.pexels.com/photos/29510510/pexels-photo-29510510.jpeg',
+      'https://images.pexels.com/photos/28439478/pexels-photo-28439478.jpeg'
     ],
     location: 'Kyoto, JP',
     date: 'November 2025',
@@ -226,7 +227,9 @@ export const journalStories: JournalStory[] = [
     quote: 'The ocean is the canvas where light paints its most timeless stories.',
     image: 'https://images.pexels.com/photos/161342/greece-santorini-architecture-island-161342.jpeg?auto=compress&cs=tinysrgb&w=1200',
     galleryImages: [
-      'https://images.pexels.com/photos/f3e1f621-82ca-43e2-8d51-5437629e7866.jpg?auto=compress&cs=tinysrgb&w=800'
+      'https://images.pexels.com/photos/6980275/pexels-photo-6980275.jpeg',
+      'https://images.pexels.com/photos/32654599/pexels-photo-32654599.jpeg',
+      'https://images.pexels.com/photos/37825188/pexels-photo-37825188.jpeg'
     ],
     location: 'Santorini, GR',
     date: 'July 2025',
@@ -252,7 +255,7 @@ export const journalStories: JournalStory[] = [
     quote: 'To witness the Aurora is to hear the solar system hum.',
     image: 'https://images.pexels.com/photos/29213491/pexels-photo-29213491.jpeg',
     galleryImages: [
-      'https://images.pexels.com/photos/31814582/pexels-photo-31814582.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://images.pexels.com/photos/16251253/pexels-photo-16251253.jpeg'
     ],
     location: 'Reykjavik, IS',
     date: 'February 2026',
