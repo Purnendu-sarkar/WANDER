@@ -615,3 +615,78 @@ export const faqs: Faq[] = [
       'Spring sakura season books out six to eight months in advance. Our open-route list refreshes each quarter — the earlier you lock in, the more flexible rebooking becomes.',
   },
 ];
+
+/* ── Footer ──────────────────────────────────────────────────── */
+
+export interface FooterLink {
+  label: string;
+  href: string;
+}
+
+export interface FooterColumn {
+  title: string;
+  links: FooterLink[];
+}
+
+export const footerColumns: FooterColumn[] = [
+  {
+    title: 'Explore',
+    links: [
+      { label: 'Destinations', href: '#destinations' },
+      { label: 'The Index', href: '#explore' },
+      { label: 'Experiences', href: '#experiences' },
+      { label: 'When To Go', href: '#seasons' },
+    ],
+  },
+  {
+    title: 'Plan',
+    links: [
+      { label: 'Expedition Leaders', href: '#leaders' },
+      { label: 'Field Manual', href: '#kit' },
+      { label: 'Traveler Voices', href: '#voices' },
+      { label: 'Questions', href: '#faq' },
+    ],
+  },
+  {
+    title: 'The Brand',
+    links: [
+      { label: 'The Wander Way', href: '#philosophy' },
+      { label: 'Journal', href: '#journal' },
+      { label: 'About', href: '#about' },
+      { label: 'Begin The Journey', href: '#destinations' },
+    ],
+  },
+];
+
+export const footerStatement = {
+  eyebrow: 'The Last Horizon',
+  text: 'THE BEST TRIPS NEVER\nREALLY END — THEY JUST\nSEND YOU HOME WITH\nA DIFFERENT MAP.',
+  subline: 'The end is where the next journey begins.',
+};
+
+export const footerContact = {
+  email: 'hello@wander.co',
+  emailHref: 'mailto:hello@wander.co',
+  note: 'Prefer a human? So do we. Write before you book — the itinerary is built around you.',
+  tagline: 'GO BEYOND PLACES.',
+  closing: "TRAVEL ISN'T A DESTINATION. IT'S A FEELING.",
+  coordinates:
+    'EST. 2026 · EIGHT EXPLORERS PER JOURNEY · ANYWHERE THE TRAIL LEADS',
+  socials: [
+    { label: 'Instagram', href: '#' },
+    { label: 'X', href: '#' },
+    { label: 'Behance', href: '#' },
+    { label: 'Email', href: 'mailto:hello@wander.co' },
+  ],
+};
+
+export const dispatch = {
+  eyebrow: 'The WANDER Dispatch',
+  title: 'One letter a month.',
+  subline:
+    'The places in between — private invites, dark-sky maps, and quiet stories before anyone else reads them.',
+  placeholder: 'you@somewhere.com',
+  cta: 'Join The Dispatch',
+  success: 'Welcome aboard. Letter one leaves this month.',
+  note: 'No noise. No spam. Unsubscribe anytime.',
+};

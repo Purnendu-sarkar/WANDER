@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import MagneticButton from '../ui/MagneticButton';
 
@@ -11,6 +11,84 @@ const navLinks = [
   { label: 'Journal', href: '#journal' },
   { label: 'About', href: '#about' },
 ];
+
+const logoLetters = 'WANDER'.split('');
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+const logoVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.055 },
+  },
+};
+
+const letterVariants: Variants = {
+  hidden: { opacity: 0, y: 16, rotateX: -70 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: { duration: 0.55, ease: EASE },
+  },
+};
+
+function WanderWordmark({ delay = 2.55, asLink = true }: { delay?: number; asLink?: boolean }) {
+  const content = (
+    <>
+      <span className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden border border-lime/50 bg-ink/40 shadow-[0_0_24px_rgba(217,255,90,0.14)] backdrop-blur-sm transition-colors duration-300 group-hover:border-lime">
+        <span className="absolute inset-x-1 top-1 h-px bg-cream/25" />
+        <span className="absolute inset-y-1 right-1 w-px bg-lime/60" />
+        <span className="font-syne text-[15px] font-extrabold leading-none tracking-[-0.04em] text-lime">W</span>
+      </span>
+      <span className="flex items-end gap-[0.16em] font-syne text-[18px] font-extrabold uppercase leading-none tracking-[0.16em] text-cream sm:text-[20px]">
+        {logoLetters.map((letter, index) => (
+          <motion.span
+            key={`${letter}-${index}`}
+            variants={letterVariants}
+            className="inline-block origin-bottom transition-colors duration-300 group-hover:text-lime"
+          >
+            {letter}
+          </motion.span>
+        ))}
+      </span>
+      <span className="hidden -translate-y-px font-mono text-[9px] uppercase tracking-[0.28em] text-cream/45 lg:inline">
+        Field Co.
+      </span>
+    </>
+  );
+
+  const className = "group inline-flex items-center gap-3 text-cream outline-none focus-visible:ring-2 focus-visible:ring-lime/70";
+
+  if (!asLink) {
+    return (
+      <motion.div
+        className={className}
+        variants={logoVariants}
+        initial="hidden"
+        animate="visible"
+        transition={{ delay }}
+      >
+        {content}
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.a
+      href="#"
+      className={className}
+      variants={logoVariants}
+      initial="hidden"
+      animate="visible"
+      transition={{ delay }}
+      aria-label="WANDER home"
+    >
+      {content}
+    </motion.a>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -27,7 +105,7 @@ export default function Navbar() {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.8, delay: 2.2, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
         className="fixed top-0 left-0 right-0 z-50"
       >
         <div
@@ -38,9 +116,7 @@ export default function Navbar() {
           }`}
         >
           <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-6 md:px-12">
-            <a href="#" className="text-lg font-bold tracking-[0.2em] text-cream">
-              WANDER
-            </a>
+            <WanderWordmark />
 
             <div className="hidden items-center gap-10 md:flex">
               {navLinks.map((link) => (
@@ -86,13 +162,11 @@ export default function Navbar() {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.4, ease: EASE }}
             className="fixed inset-0 z-[60] bg-ink md:hidden"
           >
             <div className="flex items-center justify-between px-6 py-5">
-              <span className="text-lg font-bold tracking-[0.2em] text-cream">
-                WANDER
-              </span>
+              <WanderWordmark delay={0.08} asLink={false} />
               <button
                 onClick={() => setMenuOpen(false)}
                 aria-label="Close menu"
