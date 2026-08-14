@@ -37,7 +37,7 @@ export default function Hero() {
       {/* Background giant outline text */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
         <motion.span
-          className="wander-outline select-none text-[40vw] font-bold leading-none tracking-tighter md:text-[25vw]"
+          className="wander-outline select-none text-[40vw] font-bold leading-none tracking-tighter md:text-[22vw]"
           initial={{ opacity: 0 }}
           animate={loaded ? { opacity: 1 } : {}}
           transition={{ duration: 1.5, delay: 2 }}

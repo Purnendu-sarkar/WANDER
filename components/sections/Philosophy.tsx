@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { principles, philosophyPullLine } from '../../data/destinations';
-import FadeIn from '../animations/FadeIn';
-import TextReveal from '../animations/TextReveal';
-import Parallax from '../animations/Parallax';
+import { principles, philosophyPullLine } from "../../data/destinations";
+import FadeIn from "../animations/FadeIn";
+import TextReveal from "../animations/TextReveal";
+import Parallax from "../animations/Parallax";
 
 export default function Philosophy() {
   return (
@@ -14,9 +14,9 @@ export default function Philosophy() {
       {/* Background outline word (drifts as you scroll) */}
       <Parallax
         speed={0.18}
-        className="pointer-events-none absolute inset-0 flex items-center justify-end overflow-hidden"
+        className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden"
       >
-        <span className="wander-outline select-none whitespace-nowrap text-[18vw] font-bold leading-none tracking-tighter">
+        <span className="wander-outline select-none whitespace-nowrap text-[16vw] font-bold leading-none tracking-tighter">
           ATTENTION
         </span>
       </Parallax>
@@ -34,7 +34,7 @@ export default function Philosophy() {
 
           <TextReveal
             as="h2"
-            text={'TRAVEL IS THE ART\nOF PAYING\nATTENTION'}
+            text={"TRAVEL IS THE ART\nOF PAYING\nATTENTION"}
             className="font-syne text-4xl font-bold leading-[1.02] tracking-tight text-cream sm:text-6xl md:text-7xl"
           />
         </div>

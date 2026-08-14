@@ -26,21 +26,6 @@ export default function WhenToWander() {
       id="seasons"
       className="relative overflow-hidden border-t border-cream/10 bg-ink py-28 md:py-40"
     >
-      {/* Background giant season name */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.span
-            key={season.id}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -40 }}
-            transition={{ duration: 0.6, ease: EASE }}
-            className="wander-outline select-none text-[26vw] font-bold leading-none tracking-tighter"
-          >
-            {season.name}
-          </motion.span>
-        </AnimatePresence>
-      </div>
 
       <div className="relative z-10 mx-auto max-w-[1600px] px-6 md:px-12">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
@@ -119,10 +104,25 @@ export default function WhenToWander() {
             </span>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="relative overflow-hidden py-8 lg:col-span-5 lg:px-2">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={`${season.id}-outline`}
+                initial={{ opacity: 0, y: 32 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -32 }}
+                transition={{ duration: 0.6, ease: EASE }}
+                className="wander-outline pointer-events-none absolute  top-1/2 hidden -translate-y-1/2 select-none font-display text-[6vw] font-extrabold leading-none tracking-tight lg:block"
+                aria-hidden="true"
+              >
+                {season.name}
+              </motion.span>
+            </AnimatePresence>
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={`${season.id}-info`}
+                className="relative z-10"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}

@@ -45,17 +45,17 @@ export function DestinationJourney() {
       aria-label="Destination journey"
     >
       <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
-        {/* Giant outline name in the background field */}
-        <span
-          className="outline-type pointer-events-none absolute -right-6 top-1/2 hidden -translate-y-1/2 font-display text-[16vw] font-extrabold leading-none tracking-tightest lg:block"
-          aria-hidden="true"
-        >
-          {current.category.toUpperCase()}
-        </span>
-
         <div className="relative mx-auto grid w-full max-w-[1600px] gap-10 px-6 lg:grid-cols-[1fr_0.85fr] lg:items-center lg:gap-20 lg:px-10">
           {/* Typography side */}
-          <div className="pt-24 lg:pt-0">
+          <div className="relative overflow-hidden pt-24 lg:pt-0">
+            {/* Giant outline name, clipped to the text field before the image starts */}
+            <span
+  className="outline-type pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 font-display text-[7vw] font-extrabold leading-none tracking-tightest"
+  aria-hidden="true"
+>
+  {current.category.toUpperCase()}
+</span>
+
             <div className="flex items-center gap-4 text-[11px] uppercase tracking-[0.28em] text-bone/40">
               <span>Destination</span>
               <span className="h-px w-8 bg-bone/20" />
