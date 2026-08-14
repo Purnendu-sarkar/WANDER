@@ -15,7 +15,7 @@ export const destinations: Destination[] = [
     country: 'Argentina / Chile',
     category: 'Adventure',
     coordinates: "49°18' S  73°02' W",
-    description: 'Where the earth feels endless.',
+    description: 'Where the earth feels endless',
     image: '/6d133e20-a92c-4446-9e08-d84367a3db4c.jpg',
   },
   {
@@ -24,7 +24,7 @@ export const destinations: Destination[] = [
     country: 'Japan',
     category: 'Culture',
     coordinates: "35°01' N  135°46' E",
-    description: 'Where tradition moves quietly.',
+    description: 'Where tradition moves quietly',
     image: '/055e4b9a-a541-4dba-be91-f4561f939e36.jpg',
   },
   {
@@ -33,7 +33,7 @@ export const destinations: Destination[] = [
     country: 'Greece',
     category: 'Coastal',
     coordinates: "36°23' N  25°27' E",
-    description: 'Where blue meets the horizon.',
+    description: 'Where blue meets the horizon',
     image: '/f3e1f621-82ca-43e2-8d51-5437629e7866.jpg',
   },
   {
@@ -42,7 +42,7 @@ export const destinations: Destination[] = [
     country: 'Iceland',
     category: 'Wilderness',
     coordinates: "64°08' N  21°56' W",
-    description: 'Where nature feels unreal.',
+    description: 'Where nature feels unreal',
     image: '/2a9df3a5-33c7-40d6-93e0-dc784a0680dc.jpg',
   },
   {
@@ -51,7 +51,7 @@ export const destinations: Destination[] = [
     country: 'Indonesia',
     category: 'Tropical',
     coordinates: "08°24' S  115°11' E",
-    description: 'Where mornings arrive slowly.',
+    description: 'Where mornings arrive slowly',
     image: '/a5e5d242-d869-4552-a0a4-6383d099e832.jpg',
   },
 ];
@@ -103,7 +103,7 @@ export const experiences: ExperienceItem[] = [
     highlightText: 'Into the Unseen',
     subtitle: 'Wander Beyond the Mapped Horizon',
     description: 'Traverse uncharted mountain ridge lines and secluded glacial valleys untouched by commercial tourism.',
-    fullDescription: 'Discovery is not merely about finding new lands—it is about looking with fresh eyes. Our discovery expeditions take you deep into raw wilderness, ancient trade routes, and secret alpine summits guided by local elders and seasoned explorers.',
+    fullDescription: 'Discovery is not merely about finding new lands—it is about looking with fresh eyes. Our discovery expeditions take you deep into raw wilderness, ancient trade routes and secret alpine summits guided by local elders and seasoned explorers.',
     tag: 'EXPLORATION',
     image: 'https://images.pexels.com/photos/31814582/pexels-photo-31814582.jpeg?auto=compress&cs=tinysrgb&w=1200',
     duration: '7 - 14 Days',
@@ -118,7 +118,7 @@ export const experiences: ExperienceItem[] = [
     highlightText: 'Ancient Wisdom',
     subtitle: 'Immerse in Living Heritage',
     description: 'Share quiet tea ceremonies in wooden Kyoto Machiya and break bread with nomadic desert artisans.',
-    fullDescription: 'True connection transforms travel from observation into intimate dialogue. We facilitate authentic cultural immersion where you learn ancient craft techniques, participate in sacred dawn rituals, and build friendships that cross continents.',
+    fullDescription: 'True connection transforms travel from observation into intimate dialogue. We facilitate authentic cultural immersion where you learn ancient craft techniques, participate in sacred dawn rituals and build friendships that cross continents.',
     tag: 'CULTURE & RITUALS',
     image: 'https://images.pexels.com/photos/33469141/pexels-photo-33469141.jpeg?auto=compress&cs=tinysrgb&w=1200',
     duration: '5 - 10 Days',
@@ -133,7 +133,7 @@ export const experiences: ExperienceItem[] = [
     highlightText: 'Celestial Solitude',
     subtitle: 'Find Stillness in the Elements',
     description: 'Sleep beneath the dance of the Northern Lights and wake to geothermal mist rising across volcanic valleys.',
-    fullDescription: 'In the noise of modern life, clarity requires deep stillness. Our awakening retreats combine luxury eco-lodges with hot spring therapy, dark sky astronomy, and guided silent treks designed to reset body and soul.',
+    fullDescription: 'In the noise of modern life, clarity requires deep stillness. Our awakening retreats combine luxury eco-lodges with hot spring therapy, dark sky astronomy and guided silent treks designed to reset body and soul.',
     tag: 'WELLNESS & RETREAT',
     image: 'https://images.stockcake.com/public/a/2/e/a2eb4036-9f36-4429-a810-c74c636fefe7_large/mystical-moonlit-solitude-stockcake.jpg',
     duration: '4 - 8 Days',
@@ -147,8 +147,8 @@ export const experiences: ExperienceItem[] = [
     title: 'ASCEND',
     highlightText: 'Wild Summits',
     subtitle: 'Reach High Altitude Horizons',
-    description: 'Harness high alpine breezes, fly over fjords, and push your spirit to breathtaking heights.',
-    fullDescription: 'For those who seek the thrill of high altitude, Ascend delivers high-elevation mountaineering, heliskiing over untouched powder, and cliffside ocean rappelling backed by certified alpine guides.',
+    description: 'Harness high alpine breezes, fly over fjords and push your spirit to breathtaking heights.',
+    fullDescription: 'For those who seek the thrill of high altitude, Ascend delivers high-elevation mountaineering, heliskiing over untouched powder and cliffside ocean rappelling backed by certified alpine guides.',
     tag: 'EXTREME ADVENTURE',
     image: 'https://images.pexels.com/photos/18261765/pexels-photo-18261765.jpeg?auto=compress&cs=tinysrgb&w=1200',
     duration: '6 - 12 Days',
@@ -164,7 +164,7 @@ export const journalStories: JournalStory[] = [
     number: '01',
     title: 'THE SILENCE OF PATAGONIAN WIND',
     subtitle: 'Walking through Fitz Roy’s granite spires at dawn',
-    excerpt: 'A 14-day solo expedition through wind-carved valleys, turquoise glacial lakes, and the raw poetry of South American wilderness.',
+    excerpt: 'A 14-day solo expedition through wind-carved valleys, turquoise glacial lakes and the raw poetry of South American wilderness.',
     fullContent: [
       'Standing at the foot of Mount Fitz Roy before sunrise, the wind carries a sound unlike anything else on Earth. It is not just air moving; it is a primal roar that echoes off vertical granite monoliths that have stood for millions of years.',
       'We set off from El Chaltén with forty-pound packs, navigating narrow trails lined with Antarctic beech trees. The weather in Patagonia changes not by the hour, but by the minute. Within three miles, we experienced crisp autumn sunlight, blinding horizontal sleet, and a rainbow spanning the entire Laguna de los Tres.',
@@ -289,20 +289,20 @@ export const principles: Principle[] = [
   {
     number: '01',
     title: 'SLOW',
-    tagline: 'The shortest route is the one everyone took.',
-    body: 'We book fewer stops and stay longer. A week in one village, not seven countries — enough time for the weather to turn on you twice, then forgive you.',
+    tagline: 'The shortest route is the one everyone took',
+    body: 'We book fewer stops and stay longer. A week in one village, not seven countries enough time for the weather to turn on you twice, then forgive you.',
   },
   {
     number: '02',
     title: 'RARE',
-    tagline: 'Access is earned, never queued for.',
+    tagline: 'Access is earned, never queued for',
     body: 'Small groups, private doors, after-hours temples and empty ridgelines. Every journey is limited — to eight explorers, never more.',
   },
   {
     number: '03',
     title: 'HUMAN',
-    tagline: 'The map is a suggestion. Locals are the authority.',
-    body: 'Every route is guided by people who live there. Elders, artisans and hosts — never third-party scripts, never rehearsed lines.',
+    tagline: 'The map is a suggestion. Locals are the authority',
+    body: 'Every route is guided by people who live there. Elders, artisans and hosts never third-party scripts, never rehearsed lines.',
   },
 ];
 
@@ -344,7 +344,7 @@ export const seasons: Season[] = [
     months: 'JUN — AUG',
     mood: 'RADIANCE',
     blurb:
-      'Long golden hours, empty cliffs at first swim, and dinners that start late and simply never end.',
+      'Long golden hours, empty cliffs at first swim and dinners that start late and simply never end.',
     best: ['Santorini', 'Bali'],
     fieldNote:
       'July in Oia is gold. August is foreign territory — we sail in July.',
@@ -357,7 +357,7 @@ export const seasons: Season[] = [
     months: 'SEP — NOV',
     mood: 'GRAVITY',
     blurb:
-      'Crisp air on empty trails, forests set alight, and passes the crowds have quietly abandoned.',
+      'Crisp air on empty trails, forests set alight and passes the crowds have quietly abandoned.',
     best: ['Patagonia', 'Iceland'],
     fieldNote:
       'Trails clear by late October. Go before the first big storms close the passes.',
@@ -370,7 +370,7 @@ export const seasons: Season[] = [
     months: 'DEC — FEB',
     mood: 'STILLNESS',
     blurb:
-      'Short days, long skies, and geothermal steam rising against air cold enough to feel alive in.',
+      'Short days, long skies and geothermal steam rising against air cold enough to feel alive in.',
     best: ['Iceland', 'Alps'],
     fieldNote:
       'Aurora odds peak around the equinoxes. Plan February for the darkest, quietest skies.',

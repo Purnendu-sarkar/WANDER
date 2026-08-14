@@ -40,7 +40,7 @@ export default function WhenToWander() {
             </FadeIn>
             <TextReveal
               as="h2"
-              text={'RIGHT PLACE.\nRIGHT SEASON.'}
+              text={'RIGHT PLACE\nRIGHT SEASON'}
               className="font-syne text-4xl font-bold leading-[1.02] tracking-tight text-cream sm:text-6xl md:text-7xl"
             />
           </div>
@@ -129,7 +129,7 @@ export default function WhenToWander() {
                 transition={{ duration: 0.5, delay: 0.05, ease: EASE }}
               >
                 <h3 className="font-display text-3xl font-extrabold tracking-tight text-cream md:text-4xl">
-                  What <span className="font-serif-editorial italic font-normal text-lime">{season.name.toLowerCase()}</span> feels like.
+                  What <span className="font-serif-editorial italic font-normal text-lime">{season.name.toLowerCase()}</span> feels like
                 </h3>
                 <p className="mt-6 max-w-md text-lg font-light leading-relaxed text-cream/80 md:text-xl">
                   {season.blurb}

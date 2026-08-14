@@ -72,7 +72,7 @@ export default function TravelJournal() {
             <FadeIn delay={0.1}>
               <h2 className="font-syne text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-cream leading-[1.05]">
                 STORIES FROM <br className="hidden sm:inline" />
-                <span className="font-serif-editorial italic font-normal text-lime">The Road Less Traveled</span>.
+                <span className="font-serif-editorial italic font-normal text-lime">The Road Less Traveled</span>
               </h2>
             </FadeIn>
           </div>

@@ -22,7 +22,7 @@ export default function ExpeditionLeaders() {
             </FadeIn>
             <TextReveal
               as="h2"
-              text={'WANDER WITH PEOPLE\nWHO STAY.'}
+              text={'WANDER WITH PEOPLE\nWHO STAY'}
               className="font-syne text-4xl font-bold leading-[1.02] tracking-tight text-cream sm:text-6xl md:text-7xl"
             />
           </div>

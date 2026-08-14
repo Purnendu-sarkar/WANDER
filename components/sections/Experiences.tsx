@@ -78,14 +78,14 @@ export default function Experiences() {
             <FadeIn delay={0.1}>
               <h2 className="font-syne text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-cream leading-[1.05]">
                 TRAVEL FOR <br className="hidden sm:inline" />
-                <span className="font-serif-editorial italic font-normal text-lime">The Pure Essence</span> OF BEING.
+                <span className="font-serif-editorial italic font-normal text-lime">The Pure Essence</span> OF BEING
               </h2>
             </FadeIn>
           </div>
 
           <FadeIn delay={0.2}>
             <p className="max-w-md text-base text-cream/70 leading-relaxed font-light">
-              Each experience is hand-crafted around atmospheric discovery, ancient cultural reverence, and transformative quietude.
+              Each experience is hand-crafted around atmospheric discovery, ancient cultural reverence and transformative quietude.
             </p>
           </FadeIn>
         </div>
