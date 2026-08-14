@@ -6,10 +6,10 @@ import { Menu, X } from 'lucide-react';
 import MagneticButton from '../ui/MagneticButton';
 
 const navLinks = [
-  { label: 'Destinations', href: '#destinations' },
-  { label: 'Experiences', href: '#experiences' },
-  { label: 'Journal', href: '#journal' },
-  { label: 'About', href: '#about' },
+  { label: 'Destinations', href: '/#destinations' },
+  { label: 'Experiences', href: '/#experiences' },
+  { label: 'Journal', href: '/#journal' },
+  { label: 'About', href: '/#about' },
 ];
 
 const logoLetters = 'WANDER'.split('');
@@ -34,7 +34,7 @@ const letterVariants: Variants = {
   },
 };
 
-function WanderWordmark({ delay = 2.55, asLink = true }: { delay?: number; asLink?: boolean }) {
+function WanderWordmark({ delay = 0.2, asLink = true }: { delay?: number; asLink?: boolean }) {
   const content = (
     <>
       <span className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden border border-lime/50 bg-ink/40 shadow-[0_0_24px_rgba(217,255,90,0.14)] backdrop-blur-sm transition-colors duration-300 group-hover:border-lime">
@@ -77,7 +77,7 @@ function WanderWordmark({ delay = 2.55, asLink = true }: { delay?: number; asLin
 
   return (
     <motion.a
-      href="#"
+      href="/"
       className={className}
       variants={logoVariants}
       initial="hidden"
@@ -105,7 +105,7 @@ export default function Navbar() {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.8, delay: 2.2, ease: EASE }}
+        transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
         className="fixed top-0 left-0 right-0 z-50"
       >
         <div
@@ -116,7 +116,7 @@ export default function Navbar() {
           }`}
         >
           <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-6 md:px-12">
-            <WanderWordmark />
+            <WanderWordmark delay={0.2} />
 
             <div className="hidden items-center gap-10 md:flex">
               {navLinks.map((link) => (
@@ -134,7 +134,7 @@ export default function Navbar() {
             <div className="hidden md:block">
               <MagneticButton>
                 <a
-                  href="#destinations"
+                  href="/#destinations"
                   className="group inline-flex items-center gap-2 rounded-full bg-cream px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-lime"
                 >
                   Explore
@@ -190,7 +190,7 @@ export default function Navbar() {
                 </motion.a>
               ))}
               <a
-                href="#destinations"
+                href="/#destinations"
                 onClick={() => setMenuOpen(false)}
                 className="mt-8 inline-flex items-center gap-2 rounded-full bg-lime px-6 py-4 text-base font-medium text-ink"
               >
