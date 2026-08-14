@@ -275,3 +275,343 @@ export const stats = [
   { value: 27, label: 'COUNTRIES', suffix: '' },
   { value: 12, label: 'TRAVELERS', suffix: 'K+' },
 ];
+
+/* ── The Wander Way (Philosophy) ─────────────────────────────── */
+
+export interface Principle {
+  number: string;
+  title: string;
+  tagline: string;
+  body: string;
+}
+
+export const principles: Principle[] = [
+  {
+    number: '01',
+    title: 'SLOW',
+    tagline: 'The shortest route is the one everyone took.',
+    body: 'We book fewer stops and stay longer. A week in one village, not seven countries — enough time for the weather to turn on you twice, then forgive you.',
+  },
+  {
+    number: '02',
+    title: 'RARE',
+    tagline: 'Access is earned, never queued for.',
+    body: 'Small groups, private doors, after-hours temples and empty ridgelines. Every journey is limited — to eight explorers, never more.',
+  },
+  {
+    number: '03',
+    title: 'HUMAN',
+    tagline: 'The map is a suggestion. Locals are the authority.',
+    body: 'Every route is guided by people who live there. Elders, artisans and hosts — never third-party scripts, never rehearsed lines.',
+  },
+];
+
+export const philosophyPullLine =
+  'We don\'t sell tickets. We open doors.';
+
+/* ── When to Wander (Seasonal field guide) ───────────────────── */
+
+export interface Season {
+  id: string;
+  name: string;
+  icon: 'spring' | 'summer' | 'autumn' | 'winter';
+  months: string;
+  mood: string;
+  blurb: string;
+  best: string[];
+  fieldNote: string;
+  image: string;
+}
+
+export const seasons: Season[] = [
+  {
+    id: 'spring',
+    name: 'SPRING',
+    icon: 'spring',
+    months: 'MAR — MAY',
+    mood: 'AWAKENING',
+    blurb:
+      'New leaves, thin light, and gardens no one else wakes up for. Kyoto sheds its crowds the moment the last tour bus leaves.',
+    best: ['Kyoto', 'Himalayan Foothills'],
+    fieldNote:
+      'Peak sakura is a ten-day window. Book your Machiya stay by December.',
+    image: '/055e4b9a-a541-4dba-be91-f4561f939e36.jpg',
+  },
+  {
+    id: 'summer',
+    name: 'SUMMER',
+    icon: 'summer',
+    months: 'JUN — AUG',
+    mood: 'RADIANCE',
+    blurb:
+      'Long golden hours, empty cliffs at first swim, and dinners that start late and simply never end.',
+    best: ['Santorini', 'Bali'],
+    fieldNote:
+      'July in Oia is gold. August is foreign territory — we sail in July.',
+    image: '/f3e1f621-82ca-43e2-8d51-5437629e7866.jpg',
+  },
+  {
+    id: 'autumn',
+    name: 'AUTUMN',
+    icon: 'autumn',
+    months: 'SEP — NOV',
+    mood: 'GRAVITY',
+    blurb:
+      'Crisp air on empty trails, forests set alight, and passes the crowds have quietly abandoned.',
+    best: ['Patagonia', 'Iceland'],
+    fieldNote:
+      'Trails clear by late October. Go before the first big storms close the passes.',
+    image: '/6d133e20-a92c-4446-9e08-d84367a3db4c.jpg',
+  },
+  {
+    id: 'winter',
+    name: 'WINTER',
+    icon: 'winter',
+    months: 'DEC — FEB',
+    mood: 'STILLNESS',
+    blurb:
+      'Short days, long skies, and geothermal steam rising against air cold enough to feel alive in.',
+    best: ['Iceland', 'Alps'],
+    fieldNote:
+      'Aurora odds peak around the equinoxes. Plan February for the darkest, quietest skies.',
+    image: '/2a9df3a5-33c7-40d6-93e0-dc784a0680dc.jpg',
+  },
+];
+
+/* ── Expedition Leaders (Meet the guides) ────────────────────── */
+
+export interface GuideLeader {
+  number: string;
+  name: string;
+  role: string;
+  home: string;
+  languages: string;
+  expertise: string;
+  years: string;
+  quote: string;
+  avatar: string;
+}
+
+export const leaders: GuideLeader[] = [
+  {
+    number: '01',
+    name: 'Elena Rostova',
+    role: 'Alpine Expedition Lead',
+    home: 'Patagonia, AR',
+    languages: 'ES / EN / RU',
+    expertise: 'Glacial ridgelines & high camp',
+    years: '14 yrs',
+    quote: 'Wind is honest. It tells you when to turn around.',
+    avatar:
+      'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400',
+  },
+  {
+    number: '02',
+    name: 'Kenji Takahashi',
+    role: 'Cultural Historian',
+    home: 'Kyoto, JP',
+    languages: 'JA / EN',
+    expertise: 'Tea ritual & temple access',
+    years: '18 yrs',
+    quote: 'A city is best read in silence, at five in the morning.',
+    avatar:
+      'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400',
+  },
+  {
+    number: '03',
+    name: 'Sofia Moraitis',
+    role: 'Maritime Writer & Skipper',
+    home: 'Santorini, GR',
+    languages: 'EL / EN / FR',
+    expertise: 'Caldera sailing & sea caves',
+    years: '11 yrs',
+    quote: 'The Aegean doesn\'t have a season. It has a mood.',
+    avatar:
+      'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400',
+  },
+  {
+    number: '04',
+    name: 'Aria Lindqvist',
+    role: 'Astrophotographer',
+    home: 'Reykjavik, IS',
+    languages: 'IS / EN / DE',
+    expertise: 'Aurora hunting & dark skies',
+    years: '9 yrs',
+    quote: 'I chase the sky, but I photograph the ground beneath it.',
+    avatar:
+      'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=400',
+  },
+];
+
+/* ── Traveler Voices (Testimonials) ──────────────────────────── */
+
+export interface TravelerTestimonial {
+  quote: string;
+  name: string;
+  origin: string;
+  route: string;
+  avatar: string;
+}
+
+export const testimonials: TravelerTestimonial[] = [
+  {
+    quote:
+      'I have climbed on five continents. Nothing prepared me for the silence above the clouds in Patagonia. Eight strangers, one ridge, zero phones — that is the whole review.',
+    name: 'Marcus Thorne',
+    origin: 'London, UK',
+    route: 'PATAGONIA ASCENTS',
+    avatar:
+      'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=200',
+  },
+  {
+    quote:
+      'We arrived as clients and left as friends of our guide\'s grandmother. The Kyoto tea ceremony felt less like tourism and more like being welcomed home.',
+    name: 'Amara Okafor',
+    origin: 'Toronto, CA',
+    route: 'KYOTO IN SAKURA',
+    avatar:
+      'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200',
+  },
+  {
+    quote:
+      'Two weeks in Bali at sunrise, before the island wakes up. The Wanderers knew exactly where the light would be — every single morning.',
+    name: 'Jonas Weber',
+    origin: 'Berlin, DE',
+    route: 'ISLAND DAWNS',
+    avatar:
+      'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=200',
+  },
+  {
+    quote:
+      'I chased auroras for a decade before one of Aria\'s night camps finally delivered. The sky did not disappoint — and neither did the geothermal pool after.',
+    name: 'Sophie Laurent',
+    origin: 'Lyon, FR',
+    route: 'ICELANDIC WINTER',
+    avatar:
+      'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=200',
+  },
+  {
+    quote:
+      'The "limited to eight" thing is real. Our Santorini sail met exactly seven other travelers. We shared one long dinner and the entire caldera.',
+    name: 'David Chen',
+    origin: 'Singapore, SG',
+    route: 'AEGEAN EVENINGS',
+    avatar:
+      'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=200',
+  },
+  {
+    quote:
+      'I booked the wrong season, and they rebuilt the whole route around me. That is not a tour company. That is a friend who happens to own a mountain.',
+    name: 'Ingrid Halvorsen',
+    origin: 'Oslo, NO',
+    route: 'REBUILT ROUTES',
+    avatar:
+      'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200',
+  },
+];
+
+/* ── The Wanderer's Kit (Packing checklist) ───────────────── */
+
+export interface KitItem {
+  label: string;
+  detail: string;
+}
+
+export interface KitCategory {
+  id: string;
+  number: string;
+  title: string;
+  note: string;
+  items: KitItem[];
+}
+
+export const packingKit: KitCategory[] = [
+  {
+    id: 'basics',
+    number: '01',
+    title: 'THE BASICS',
+    note: 'The unglamorous essentials',
+    items: [
+      { label: 'Passport & visa copies', detail: 'Digital + paper, kept apart' },
+      { label: 'Travel insurance card', detail: 'We verify it before departure' },
+      { label: 'Spare passport photos', detail: 'Two, never one' },
+      { label: 'Adapter & backup battery', detail: '100–240V, universal' },
+    ],
+  },
+  {
+    id: 'trail',
+    number: '02',
+    title: 'ON THE TRAIL',
+    note: 'Where weather changes by the minute',
+    items: [
+      { label: 'Broken-in hiking boots', detail: 'Worn by week two, not day one' },
+      { label: 'Packable rain shell', detail: 'Patagonia rain arrives without a meeting' },
+      { label: '40L pack — no more', detail: 'You carry it. We do not.' },
+      { label: 'Physical map, unhurried', detail: 'Old school on purpose' },
+    ],
+  },
+  {
+    id: 'dark',
+    number: '03',
+    title: 'AFTER DARK',
+    note: 'For the hours photography forgets',
+    items: [
+      { label: 'Red-light headlamp', detail: 'Preserves night vision for aurora' },
+      { label: 'Down mid-layer', detail: 'Thermals beat jackets at −10°C' },
+      { label: 'Stargazing blanket', detail: 'Insulated, packable — ours or yours' },
+      { label: 'Low-glow flask', detail: 'For the summit rule: nothing heavy' },
+    ],
+  },
+  {
+    id: 'human',
+    number: '04',
+    title: 'THE HUMAN KIT',
+    note: 'Progress doesn\'t fit in a roll-aboard',
+    items: [
+      { label: 'Small journal & one pen', detail: 'The real souvenir' },
+      { label: 'A phrase in the local tongue', detail: 'We teach you three before landing' },
+      { label: 'A gift for your host', detail: 'Sweets from home land best' },
+      { label: 'An open schedule', detail: 'Patience is the only upgrade we cannot pack' },
+    ],
+  },
+];
+
+/* ── Before You Wander (FAQ) ─────────────────────────────────── */
+
+export interface Faq {
+  question: string;
+  answer: string;
+}
+
+export const faqs: Faq[] = [
+  {
+    question: 'How small are WANDER groups, really?',
+    answer:
+      'Eight travelers per journey, one lead guide and one local host. On certain routes — like the Kyoto Machiya stay — access is fully private, and the group never feels like a group.',
+  },
+  {
+    question: 'What happens if my plans change?',
+    answer:
+      'Deposits are fully refundable up to 60 days before departure. After that we will move you, split payments, or transfer the booking to a friend. The trip is the dream, not the deposit.',
+  },
+  {
+    question: 'Do I need to be fit?',
+    answer:
+      'Every route lists a difficulty — from Leisurely to Advanced — and we fit the trip to the traveler, not the other way around. If you are unsure, we build the itinerary around your pace.',
+  },
+  {
+    question: 'What about solo travelers?',
+    answer:
+      'Over half of our guests travel alone. Couples, friends and solo explorers are mixed into each journey, and there is no single supplement on shared expeditions.',
+  },
+  {
+    question: 'Where do I sleep?',
+    answer:
+      'Where locals sleep: restored machiya, alpine refuges, eco-lodges and a handful of off-grid rooms that do not exist online. Never chain hotels, never crowded hostels.',
+  },
+  {
+    question: 'How far ahead should I book?',
+    answer:
+      'Spring sakura season books out six to eight months in advance. Our open-route list refreshes each quarter — the earlier you lock in, the more flexible rebooking becomes.',
+  },
+];
