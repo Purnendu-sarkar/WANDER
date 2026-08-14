@@ -16,6 +16,7 @@ import {
   X,
   Layers
 } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Experiences() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -202,10 +203,12 @@ export default function Experiences() {
                   transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
                   className="absolute inset-0"
                 >
-                  <img
+                  <Image
                     src={activeExp.image}
                     alt={activeExp.title}
                     className="h-full w-full object-cover"
+                    width={500}
+                    height={500}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent opacity-80" />
                 </motion.div>
@@ -250,7 +253,7 @@ export default function Experiences() {
                 </div>
 
                 <h4 className="font-serif-editorial text-3xl sm:text-4xl text-cream font-normal italic leading-snug">
-                  "{activeExp.subtitle}"
+                  &quot;{activeExp.subtitle}&quot;
                 </h4>
 
                 <div className="pt-2 flex items-center justify-between gap-4 border-t border-cream/10">
@@ -322,10 +325,12 @@ export default function Experiences() {
 
               {/* Image Preview Banner */}
               <div className="relative aspect-[16/9] rounded-2xl overflow-hidden my-6 border border-cream/10">
-                <img
+                <Image
                   src={selectedExperience.image}
                   alt={selectedExperience.title}
                   className="h-full w-full object-cover"
+                  width={500}
+                  height={500}
                 />
               </div>
 

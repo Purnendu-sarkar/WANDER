@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { heroImage } from '../../data/destinations';
 import MagneticButton from '../ui/MagneticButton';
+import Image from 'next/image';
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
@@ -22,10 +23,12 @@ export default function Hero() {
         animate={loaded ? { scale: 1, opacity: 1 } : {}}
         transition={{ duration: 2.5, delay: 1.6, ease: [0.22, 1, 0.36, 1] }}
       >
-        <img
+        <Image
           src={heroImage}
           alt="Cinematic mountain landscape"
           className="h-full w-full object-cover"
+          width={500}
+          height={500}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/30 to-ink" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/50 to-transparent" />

@@ -1,9 +1,15 @@
-'use client';
+"use client";
 
-import React, { useRef, useState } from 'react';
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
-import { ArrowRightIcon } from 'lucide-react';
-import { destinations } from '../../data/destinations';
+import React, { useRef, useState } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
+import { ArrowRightIcon } from "lucide-react";
+import { destinations } from "../../data/destinations";
+import Image from "next/image";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 const journey = destinations.slice(0, 4);
@@ -17,11 +23,14 @@ export function DestinationJourney() {
   const [active, setActive] = useState(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end end'],
+    offset: ["start start", "end end"],
   });
 
-  useMotionValueEvent(scrollYProgress, 'change', (value) => {
-    const next = Math.min(journey.length - 1, Math.floor(value * journey.length));
+  useMotionValueEvent(scrollYProgress, "change", (value) => {
+    const next = Math.min(
+      journey.length - 1,
+      Math.floor(value * journey.length),
+    );
     setActive(next < 0 ? 0 : next);
   });
 
@@ -59,9 +68,9 @@ export function DestinationJourney() {
                 <motion.h2
                   key={current.name}
                   className="font-display text-[13vw] font-extrabold leading-[0.85] tracking-tightest text-bone lg:text-[9vw]"
-                  initial={{ y: '110%' }}
-                  animate={{ y: '0%' }}
-                  exit={{ y: '-110%' }}
+                  initial={{ y: "110%" }}
+                  animate={{ y: "0%" }}
+                  exit={{ y: "-110%" }}
                   transition={{ duration: 0.3, ease: EASE }}
                 >
                   {current.name}
@@ -120,16 +129,20 @@ export function DestinationJourney() {
                   opacity: index === active ? 1 : 0,
                   scale: index === active ? 1 : 1.06,
                   clipPath:
-                    index === active ? 'inset(0% 0 0% 0)' : 'inset(18% 0 18% 0)',
+                    index === active
+                      ? "inset(0% 0 0% 0)"
+                      : "inset(18% 0 18% 0)",
                 }}
                 transition={{ duration: 0.3, ease: EASE }}
                 aria-hidden={index !== active}
               >
-                <img
+                <Image
                   src={destination.image}
                   alt={`${destination.name}, ${destination.country}`}
-                  loading={index === 0 ? 'eager' : 'lazy'}
+                  loading={index === 0 ? "eager" : "lazy"}
                   className="h-full w-full object-cover"
+                  width={500}
+                  height={500}
                 />
               </motion.div>
             ))}
